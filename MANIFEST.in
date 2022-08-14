@@ -1,0 +1,7 @@
+include portio.c
+include toggle.py
+include *.rst
+include *.html
+include *.json
+include _static/*
+include _sources/*
