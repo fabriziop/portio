@@ -4,7 +4,7 @@
 # .context    : PortIO
 # .title      : Toggle parallel port lines
 # .kind	      : command shell
-# .author     : Fabrizio Pollastri <f.pollastri@inrim.it>
+# .author     : Fabrizio Pollastri <mxgbot@gmail.com>
 # .site	      : Torino - Italy
 # .creation   :	13-Nov-2008
 # .copyright  :	(c) 2008-2012 Fabrizio Pollastri

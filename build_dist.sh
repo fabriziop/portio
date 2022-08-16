@@ -4,7 +4,7 @@
 # .context    : PortIO
 # .title      : Build PortIO distibution
 # .kind	      : command shell
-# .author     : Fabrizio Pollastri <f.pollastri@inrim.it>
+# .author     : Fabrizio Pollastri <mxgbot@gmail.com>
 # .site	      : Torino - Italy
 # .creation   :	13-Nov-2008
 # .copyright  :	(c) 2009 Fabrizio Pollastri

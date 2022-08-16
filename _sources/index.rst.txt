@@ -12,8 +12,9 @@ provided by the C library on Linux x86 platforms. Both python 2 and 3 are
 supported. This module is useful when a general pourpose port I/O at the low
 level is needed. Programmers that want to perform I/O on the parallel port
 at an higher level, will be better satisfied by the
-`pyParallel <http://pyserial.sourceforge.net/pyparallel.html>`_ module.
-A similar module `Ioport <http://www.hare.demon.co.uk/ioport/ioport.html>`_
+`pyParallel <https://github.com/pyparallel/pyparallel>`_ module.
+A similar module Ioport
+.. A similar module `Ioport <http://www.hare.demon.co.uk/ioport/ioport.html>`_
 has inspired the writing of PortIO.
 
 PortIO is released under the `GNU General Public License
@@ -23,7 +24,7 @@ PortIO is released under the `GNU General Public License
 welcome.*
 
 For any question, suggestion, contribution contact the author
-`Fabrizio Pollastri` <f.pollastri_a_t_inrim.it>.
+`Fabrizio Pollastri` <mxgbot_a_t_gmail.com>.
 
 The PortIO web site is hosted at http://portio.inrim.it/.
 
@@ -234,7 +235,7 @@ Credits
 
 ----
 
-Copyright 2006-2012 by `Fabrizio Pollastri` <f.pollastri_a_t_inrim.it>
+Copyright 2006-2012 by `Fabrizio Pollastri` <mxgbot_a_t_gmail.com>
 
 
 ..

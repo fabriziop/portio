@@ -4,7 +4,7 @@
 # .context    : portio python extension
 # .title      : distutils setup
 # .kind	      : python source
-# .author     : Fabrizio Pollastri <f.pollastri@inrim.it>
+# .author     : Fabrizio Pollastri <mxgbot@gmail.com>
 # .site	      : Torino - Italy
 # .creation   :	16-Feb-2006
 # .copyright  :	(c) 2006-2012 Fabrizio Pollastri
@@ -100,9 +100,9 @@ setup (
   name = 'portio',
   version = '0.5',
   author = 'Fabrizio Pollastri',
-  author_email = 'f.pollastri@inrim.it',
+  author_email = 'mxgbot@gmail.com',
   maintainer = 'Fabrizio Pollastri',
-  maintainer_email = 'f.pollastri@inrim.it',
+  maintainer_email = 'mxgbot@gmail.com',
   url = 'http://portio.inrim.it',
   license = 'http://www.gnu.org/licenses/gpl.txt',
   platforms = ['Linux'],
