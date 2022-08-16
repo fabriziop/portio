@@ -13,9 +13,9 @@ supported. This module is useful when a general pourpose port I/O at the low
 level is needed. Programmers that want to perform I/O on the parallel port
 at an higher level, will be better satisfied by the
 `pyParallel <https://github.com/pyparallel/pyparallel>`_ module.
-A similar module Ioport
-.. A similar module `Ioport <http://www.hare.demon.co.uk/ioport/ioport.html>`_
-has inspired the writing of PortIO.
+A similar module Ioport has inspired the writing of PortIO.
+
+.. now is broken `Ioport <http://www.hare.demon.co.uk/ioport/ioport.html>`_
 
 PortIO is released under the `GNU General Public License
 <http://www.gnu.org/licenses/gpl.txt>`_.
