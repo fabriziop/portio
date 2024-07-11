@@ -95,10 +95,10 @@ static PyObject *pio_outl_p(PyObject *self,PyObject *args)
 static PyObject *pio_outsb(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  outsb(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  outsb(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -106,10 +106,10 @@ static PyObject *pio_outsb(PyObject *self,PyObject *args)
 static PyObject *pio_outsw(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  outsw(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  outsw(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -117,10 +117,10 @@ static PyObject *pio_outsw(PyObject *self,PyObject *args)
 static PyObject *pio_outsl(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  outsl(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  outsl(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -182,10 +182,10 @@ static PyObject *pio_inl_p(PyObject *self,PyObject *args)
 static PyObject *pio_insb(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  insb(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  insb(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -193,10 +193,10 @@ static PyObject *pio_insb(PyObject *self,PyObject *args)
 static PyObject *pio_insw(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  insw(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  insw(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -204,10 +204,10 @@ static PyObject *pio_insw(PyObject *self,PyObject *args)
 static PyObject *pio_insl(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  insl(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  insl(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
