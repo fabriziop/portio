@@ -291,17 +291,17 @@ outl_p (data,port)\n\
   The same as outl, but waits for I/O completion.\n\
 \n\
 outsb (port,data,count)\n\
-  Repeat count times the output of a byte to the I/O address port,\n\
+  Repeat count times the output of a single byte to the I/O address port,\n\
   reading it from buffer of bytes starting at data and with length\n\
   count.\n\
 \n\
 outsw (port,data,count)\n\
-  Repeat count times the output of a 16 bit word to the I/O address\n\
+  Repeat count times the output of a single 16 bit word to the I/O address\n\
   port, reading it from buffer of 16 bit words starting at data and\n\
   with length count x 2.\n\
 \n\
 outsl (port,data,count)\n\
-  Repeat count times the output of a 32 bit word to the I/O address\n\
+  Repeat count times the output of a single 32 bit word to the I/O address\n\
   port, reading it from buffer of 32 bit words starting at data and\n\
   with length count x 4.\n\
 \n\
@@ -324,17 +324,17 @@ inl_p (port)\n\
   The same as inl, but waits for I/O completion.\n\
 \n\
 insb (port,data,count)\n\
-  Repeat count times the input of a byte from the I/O address port\n\
+  Repeat count times the input of a single byte from the I/O address port\n\
   and write it to a buffer of bytes starting at data and with length\n\
   count bytes.\n\
 \n\
 insw (port,data,count)\n\
-  Repeat count times the input of a 16 bit word from the I/O address\n\
+  Repeat count times the input of a single 16 bit word from the I/O address\n\
   port and write it to a buffer of 16 bit words starting at data\n\
   and with length count x 2 bytes.\n\
 \n\
 insl (port,data,count)\n\
-  Repeat count times the input of a 32 bit word from the I/O address\n\
+  Repeat count times the input of a single 32 bit word from the I/O address\n\
   port and write it to a buffer of 32 bit words starting at data\n\
   and with length count x 4 bytes.\n\
 \n\
