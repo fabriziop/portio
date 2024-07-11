@@ -95,10 +95,10 @@ static PyObject *pio_outl_p(PyObject *self,PyObject *args)
 static PyObject *pio_outsb(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  outsb(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  outsb(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -106,10 +106,10 @@ static PyObject *pio_outsb(PyObject *self,PyObject *args)
 static PyObject *pio_outsw(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  outsw(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  outsw(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -117,10 +117,10 @@ static PyObject *pio_outsw(PyObject *self,PyObject *args)
 static PyObject *pio_outsl(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  outsl(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  outsl(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -182,10 +182,10 @@ static PyObject *pio_inl_p(PyObject *self,PyObject *args)
 static PyObject *pio_insb(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  insb(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  insb(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -193,10 +193,10 @@ static PyObject *pio_insb(PyObject *self,PyObject *args)
 static PyObject *pio_insw(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  insw(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  insw(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -204,10 +204,10 @@ static PyObject *pio_insw(PyObject *self,PyObject *args)
 static PyObject *pio_insl(PyObject *self,PyObject *args)
 {
   unsigned short int port;
-  void *string;
+  Py_buffer string;
   unsigned long int count;
-  if (!PyArg_ParseTuple(args,"Hsk",&port,&string,&count)) return NULL;
-  insl(port,string,count);
+  if (!PyArg_ParseTuple(args,"Hs*k",&port,&string,&count)) return NULL;
+  insl(port,string.buf,count);
   Py_INCREF(Py_None);
   return Py_None;
 }
@@ -291,17 +291,17 @@ outl_p (data,port)\n\
   The same as outl, but waits for I/O completion.\n\
 \n\
 outsb (port,data,count)\n\
-  Repeat count times the output of a byte to the I/O address port,\n\
+  Repeat count times the output of a single byte to the I/O address port,\n\
   reading it from buffer of bytes starting at data and with length\n\
   count.\n\
 \n\
 outsw (port,data,count)\n\
-  Repeat count times the output of a 16 bit word to the I/O address\n\
+  Repeat count times the output of a single 16 bit word to the I/O address\n\
   port, reading it from buffer of 16 bit words starting at data and\n\
   with length count x 2.\n\
 \n\
 outsl (port,data,count)\n\
-  Repeat count times the output of a 32 bit word to the I/O address\n\
+  Repeat count times the output of a single 32 bit word to the I/O address\n\
   port, reading it from buffer of 32 bit words starting at data and\n\
   with length count x 4.\n\
 \n\
@@ -324,17 +324,17 @@ inl_p (port)\n\
   The same as inl, but waits for I/O completion.\n\
 \n\
 insb (port,data,count)\n\
-  Repeat count times the input of a byte from the I/O address port\n\
+  Repeat count times the input of a single byte from the I/O address port\n\
   and write it to a buffer of bytes starting at data and with length\n\
   count bytes.\n\
 \n\
 insw (port,data,count)\n\
-  Repeat count times the input of a 16 bit word from the I/O address\n\
+  Repeat count times the input of a single 16 bit word from the I/O address\n\
   port and write it to a buffer of 16 bit words starting at data\n\
   and with length count x 2 bytes.\n\
 \n\
 insl (port,data,count)\n\
-  Repeat count times the input of a 32 bit word from the I/O address\n\
+  Repeat count times the input of a single 32 bit word from the I/O address\n\
   port and write it to a buffer of 32 bit words starting at data\n\
   and with length count x 4 bytes.\n\
 \n\
