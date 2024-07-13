@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "portio"
 dynamic = ["version","readme"]
-description = 'PortIO, python low level port I/O for Linux x86'
+description = "PortIO, python low level port I/O for Linux x86"
 requires-python = ">=2.8"
 license = {text = "LGPL"}
 keywords = []
@@ -57,3 +57,4 @@ py-modules = ["conf","toggle"]
 
 [tool.setuptools_scm]
 git_describe_command = ["git","describe","--tags"]
+
