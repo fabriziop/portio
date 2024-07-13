@@ -197,7 +197,7 @@ contains a distutils setup file "setup.py".
 Changelog
 =========
 
-**Portio 0.6.0 released 25-Oct-2024**
+**Portio 0.6.0 released 14-Jul-2024**
 
 * Use Py_buffer instead of C strings, contributed by Stephen Horvath
   <me_a_t_stevetech.au>
