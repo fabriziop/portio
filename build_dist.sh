@@ -36,6 +36,7 @@ rm -rf _static _sources
 rm -rf tmp
 
 # build html pages
+cp README.rst index.rst
 make html
 mv .build/html/* .
 
