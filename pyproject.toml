@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools","setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portio"
+dynamic = ["version","readme"]
+description = 'PortIO, python low level port I/O for Linux x86'
+requires-python = ">=2.8"
+license = {text = "LGPL"}
+keywords = []
+authors = [
+  { name = "Fabrizio Pollastri", email = "mxgbot@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 2.8",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/fabriziop/portio#readme"
+Issues = "https://github.com/fabriziop/portio/issues"
+Source = "https://github.com/fabriziop/portio"
+
+[tool.coverage.run]
+source_pkgs = ["portio"]
+branch = true
+parallel = true
+omit = [
+  "src/temporary/__about__.py",
+]
+
+[tool.coverage.paths]
+portio = ["*/portio"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.setuptools.dynamic]
+readme = {file = "README.rst"}
+
+[tool.setuptools]
+py-modules = ["conf","toggle"]
+
+[tool.setuptools_scm]
+git_describe_command = ["git","describe","--tags"]

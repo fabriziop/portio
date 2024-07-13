@@ -98,16 +98,13 @@ module = Extension(
 
 setup (
   name = 'portio',
-  version = '0.5',
   author = 'Fabrizio Pollastri',
   author_email = 'mxgbot@gmail.com',
-  maintainer = 'Fabrizio Pollastri',
-  maintainer_email = 'mxgbot@gmail.com',
   url = 'http://portio.inrim.it',
   license = 'http://www.gnu.org/licenses/gpl.txt',
   platforms = ['Linux'],
   description = main_title,
-  classifiers = filter(None, classifiers.split("\n")),
+  classifiers = [line for line in filter(None, classifiers.split("\n"))],
   long_description =  readme_db["Module reference"],
   ext_modules = [module])
 
