@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # .+
 #
 # .context    : portio python extension
@@ -29,11 +29,10 @@
 # 
 # .-
 
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 import os
 import os.path
 import re
-import string
 import sys
 
 classifiers = """\
@@ -48,16 +47,12 @@ Operating System :: POSIX :: Linux
 """
 
 # check for proper python version
-if sys.version < '2.6':
-  print('\nportio 0.5 requires python >= 2.6 , found python', \
+if sys.version < '3.0':
+  print('\nportio 0.6.1 requires python >= 3.0 , found python', \
     sys.version.split()[0], ', exiting...')
   sys.exit()
 
-# if python docutils are installed, generate HTML documentation.
-if os.path.exists('/usr/bin/rst-buildhtml'):
-  os.system('/usr/bin/rst-buildhtml')
-
-readme = open('index.rst').read()	# read in documentation file
+readme = open('README.rst').read()	# read in documentation file
 readme = readme.replace('**','')	# remove restructuredtext markup
 
 # split documentation by text titles and put each title and its text body
@@ -91,9 +86,7 @@ if not os.path.exists('toggle.py'):
 module = Extension(
   'portio',
   define_macros = [('MAJOR_VERSION', '0'),('MINOR_VERSION', '5')],
-  include_dirs = ['/usr/local/include'],
   libraries = [],
-  library_dirs = ['/usr/lib'],
   sources = ['portio.c'])
 
 setup (
