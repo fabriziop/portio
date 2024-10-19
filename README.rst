@@ -20,7 +20,7 @@ A similar module Ioport has inspired the writing of PortIO.
 PortIO is released under the `GNU General Public License
 <http://www.gnu.org/licenses/gpl.txt>`_.
 
-*At present, version 0.5, PortIO is in beta status. Any debugging aid is
+*At present, version 0.6.2, PortIO is in beta status. Any debugging aid is
 welcome.*
 
 For any question, suggestion, contribution contact the author
@@ -196,6 +196,11 @@ contains a distutils setup file "setup.py".
 
 Changelog
 =========
+
+**Portio 0.6.2 released 19-Oct-2024**
+
+* Remove absolute paths and cleanup build, contributed by James Hilliard
+  <james.hilliard1_a_t_gmail.com>
 
 **Portio 0.6.0 released 14-Jul-2024**
 

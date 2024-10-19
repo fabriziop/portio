@@ -7,7 +7,7 @@
 # .author     : Fabrizio Pollastri <mxgbot@gmail.com>
 # .site	      : Torino - Italy
 # .creation   :	16-Feb-2006
-# .copyright  :	(c) 2006-2012 Fabrizio Pollastri
+# .copyright  :	(c) 2006-2024 Fabrizio Pollastri
 #               (c) 2012 Stjepan Henc <shenc@gmail.com> python 3 porting.
 # .license    : GNU General Public License (see .copying below)
 #
@@ -48,7 +48,7 @@ Operating System :: POSIX :: Linux
 
 # check for proper python version
 if sys.version < '3.0':
-  print('\nportio 0.6.1 requires python >= 3.0 , found python', \
+  print('\nportio 0.6.2 requires python >= 3.0 , found python', \
     sys.version.split()[0], ', exiting...')
   sys.exit()
 

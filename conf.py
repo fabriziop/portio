@@ -36,15 +36,15 @@ master_doc = 'index'
 
 # General substitutions.
 project = 'PortIO'
-copyright = '2006-2012, Fabrizio Pollastri'
+copyright = '2006-2024, Fabrizio Pollastri'
 
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
 #
 # The short X.Y version.
-version = '0.5'
+version = '0.6.2'
 # The full version, including alpha/beta/rc tags.
-release = '0.5'
+release = '0.6.2'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
