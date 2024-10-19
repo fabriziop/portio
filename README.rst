@@ -37,11 +37,6 @@ lp0 with a 6 seconds period. Note the check for root privileges before
 the call to **ioperm** to acquire the proper I/O permissions for the involved
 ports.
 
-.. include:: toggle.py
-   :start-after: .-
-   :end-before: #### END
-   :literal:
-
 Download the sample program `toggle.py <./toggle.py>`_
 
 
