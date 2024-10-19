@@ -43,7 +43,7 @@ mv .build/html/* .
 # build python source distribution
 echo "building python distribution ... "
 cp -p toggle.py _sources
-python setup.py -q sdist
+python3 setup.py -q sdist
 
 mv dist/*.gz .
 echo "Done"
