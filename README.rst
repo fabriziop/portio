@@ -20,7 +20,7 @@ A similar module Ioport has inspired the writing of PortIO.
 PortIO is released under the `GNU General Public License
 <http://www.gnu.org/licenses/gpl.txt>`_.
 
-*At present, version 0.6.2, PortIO is in beta status. Any debugging aid is
+*At present, version 0.7.0, PortIO is in beta status. Any debugging aid is
 welcome.*
 
 For any question, suggestion, contribution contact the author
@@ -162,7 +162,7 @@ With easy_install
 From tarball
 ------------
 
-Download PortIO tarball from http://portio.inrim.it/portio-0.6.0.tar.gz .
+Download PortIO tarball from http://portio.inrim.it/portio-0.7.0.tar.gz .
 
 The first step is to expand the ``.tgz`` archive in a temporary
 directory (**not** directly in Python's ``site-packages``).  It
@@ -193,6 +193,11 @@ contains a distutils setup file "setup.py".
 
 Changelog
 =========
+
+**Portio 0.7.0 released 24-Jan-2026**
+
+* Add FreeBSD support, contributed by Stephen Horvath
+  <me_a_t_stevetech.au>
 
 **Portio 0.6.2 released 19-Oct-2024**
 
@@ -241,10 +246,11 @@ Credits
 
 * Thanks to Stjepan Henc <sthenc_a_t_gmail.com> for his contribution to python 3 porting.
 
+* Thanks to Stephen Horvath <me_a_t_stevetech.au> for his contribution to add FreeBSD support.
 
 ----
 
-Copyright 2006-2024 by `Fabrizio Pollastri` <mxgbot_a_t_gmail.com>
+Copyright 2006-2026 by `Fabrizio Pollastri` <mxgbot_a_t_gmail.com>
 
 
 ..
