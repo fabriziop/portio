@@ -5,24 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "portio"
 dynamic = ["version","readme"]
-description = "PortIO, python low level port I/O for Linux x86"
+description = "PortIO, python low level port I/O for Linux and FreeBSD x86"
 requires-python = ">=2.8"
-license = {text = "LGPL"}
+license = "GPL-2.0+"
 keywords = []
 authors = [
   { name = "Fabrizio Pollastri", email = "mxgbot@gmail.com" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 2",
+  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: Implementation :: CPython",
-  "Programming Language :: Python :: Implementation :: PyPy",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: POSIX :: BSD :: FreeBSD",
+  "Topic :: System :: Hardware",
+  "Topic :: Software Development :: Libraries",
+  "Intended Audience :: Developers",
 ]
 dependencies = []
 

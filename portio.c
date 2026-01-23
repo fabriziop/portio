@@ -30,7 +30,38 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 .- */
 
 #include "Python.h"
+
+#if defined(__linux__)
 #include <sys/io.h>
+#elif defined(__FreeBSD__)
+#include <machine/sysarch.h>
+#include <machine/cpufunc.h>
+#endif
+
+#if defined(__FreeBSD__)
+// FreeBSD replacement for ioperm
+static int ioperm(unsigned long from, unsigned long num, int enable) {
+    struct i386_ioperm_args args = {
+        .start = from,
+        .length = num,
+        .enable = enable
+    };
+    return sysarch(I386_SET_IOPERM, &args);
+}
+
+// iopl is not supported on FreeBSD, so we return an error
+static int iopl(int level) {
+    errno = 45; // EOPNOTSUPP
+    return errno;
+}
+
+#define outb_p outb
+#define outw_p outw
+#define outl_p outl
+#define inb_p inb
+#define inw_p inw
+#define inl_p inl
+#endif
 
 static PyObject *pio_outb(PyObject *self,PyObject *args)
 {
@@ -262,10 +293,10 @@ static struct PyMethodDef methods[] = {
 
 /* module init function */
 
-static char documentation[] =" PortIO, python low level port I/O for Linux x86\n\
+static char documentation[] =" PortIO, python low level port I/O for Linux and FreeBSD x86\n\
 \n\
 PortIO is a Python front end to the low level functions provided by the\n\
-C library on Linux 386 platforms for the hardware input and output ports:\n\
+system userspace API for the hardware input and output ports:\n\
 outb, outw, outl, outsb, outsw, outsl, outb_p, outw_p, outl_p, inb, inw,\n\
 inl, insb, insw, insl, inb_p, inw_p, inl_p, ioperm, iopl.\n\
 \n\
@@ -291,17 +322,17 @@ outl_p (data,port)\n\
   The same as outl, but waits for I/O completion.\n\
 \n\
 outsb (port,data,count)\n\
-  Repeat count times the output of a single byte to the I/O address port,\n\
+  Repeat count times the output of a byte to the I/O address port,\n\
   reading it from buffer of bytes starting at data and with length\n\
   count.\n\
 \n\
 outsw (port,data,count)\n\
-  Repeat count times the output of a single 16 bit word to the I/O address\n\
+  Repeat count times the output of a 16 bit word to the I/O address\n\
   port, reading it from buffer of 16 bit words starting at data and\n\
   with length count x 2.\n\
 \n\
 outsl (port,data,count)\n\
-  Repeat count times the output of a single 32 bit word to the I/O address\n\
+  Repeat count times the output of a 32 bit word to the I/O address\n\
   port, reading it from buffer of 32 bit words starting at data and\n\
   with length count x 4.\n\
 \n\
@@ -324,17 +355,17 @@ inl_p (port)\n\
   The same as inl, but waits for I/O completion.\n\
 \n\
 insb (port,data,count)\n\
-  Repeat count times the input of a single byte from the I/O address port\n\
+  Repeat count times the input of a byte from the I/O address port\n\
   and write it to a buffer of bytes starting at data and with length\n\
   count bytes.\n\
 \n\
 insw (port,data,count)\n\
-  Repeat count times the input of a single 16 bit word from the I/O address\n\
+  Repeat count times the input of a 16 bit word from the I/O address\n\
   port and write it to a buffer of 16 bit words starting at data\n\
   and with length count x 2 bytes.\n\
 \n\
 insl (port,data,count)\n\
-  Repeat count times the input of a single 32 bit word from the I/O address\n\
+  Repeat count times the input of a 32 bit word from the I/O address\n\
   port and write it to a buffer of 32 bit words starting at data\n\
   and with length count x 4 bytes.\n\
 \n\
@@ -344,15 +375,17 @@ ioperm (from,extent,enable)\n\
   On success, zero is returned. On error, the errno code is returned.\n\
   The use of ioperm requires root privileges.\n\
 \n\
-  Only the first 0x3ff I/O ports can be specified in this manner. To gain\n\
-  access to any I/O port in the whole (0x0000-0xffff) address range, use\n\
-  the iopl function. \n\
+  Before Linux 2.6.8, only the first 0x3ff I/O ports could be specified\n\
+  in this manner. For more ports, the iopl system call had to be used.\n\
+  Since Linux 2.6.8, the whole (0x0000-0xffff) address range can be\n\
+  specified.\n\
 \n\
 iopl (level)\n\
   Set the I/O privilege level of the current process. When level is 3\n\
   access is granted to any I/O port.\n\
   On success, zero is returned. On error, the errno code is returned.\n\
   The use of iopl requires root privileges.\n\
+  iopl is not supported on FreeBSD and will always return an error.\n\
 \n\
 ";
 

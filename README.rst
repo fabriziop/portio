@@ -1,17 +1,17 @@
 
-================================================
- PortIO, python low level port I/O for Linux x86
-================================================
+============================================================
+ PortIO, python low level port I/O for Linux and FreeBSD x86
+============================================================
 
 
 What is
 =======
 
 PortIO is a Python wrapper for the port I/O macros like **outb, inb**, etc. 
-provided by the C library on Linux x86 platforms. Both python 2 and 3 are
-supported. This module is useful when a general pourpose port I/O at the low
-level is needed. Programmers that want to perform I/O on the parallel port
-at an higher level, will be better satisfied by the
+provided by the C library on Linux and FreeBSD x86 platforms. Both python 2
+and 3 are supported. This module is useful when a general purpose port I/O at
+the low level is needed. Programmers that want to perform I/O on the parallel
+port at an higher level, will be better satisfied by the
 `pyParallel <https://github.com/pyparallel/pyparallel>`_ module.
 A similar module Ioport has inspired the writing of PortIO.
 
@@ -44,7 +44,7 @@ Module reference
 ================
 
 PortIO is a Python front end to the low level functions provided by the
-C library on Linux 386 platforms for the hardware input and output ports:
+system userspace API for the hardware input and output ports:
 **outb, outw, outl, outsb, outsw, outsl, outb_p, outw_p, outl_p, inb, inw,
 inl, insb, insw, insl, inb_p, inw_p, inl_p, ioperm, iopl**.
 
@@ -123,21 +123,23 @@ calling **ioperm** or **iopl**. Otherwise you will get a segmentation fault.
   On success, zero is returned. On error, the errno code is returned.
   The use of ioperm requires root privileges.
 
-  Only the first 0x3ff I/O ports can be specified in this manner. To gain
-  access to any I/O port in the whole (0x0000-0xffff) address range, use
-  the iopl function. 
+  Before Linux 2.6.8, only the first 0x3ff I/O ports could be specified
+  in this manner. For more ports, the iopl system call had to be used.
+  Since Linux 2.6.8, the whole (0x0000-0xffff) address range can be
+  specified.
 
 **iopl (level)**
   Set the I/O privilege level of the current process. When **level** is 3
   access is granted to any I/O port.
   On success, zero is returned. On error, the errno code is returned.
   The use of iopl requires root privileges.
+  iopl is not supported on FreeBSD and will always return an error.
 
 
 Requirements
 ============
 
-A **linux on an X86 architecture**.
+A **Linux or FreeBSD OS on an X86 architecture**.
 
 To run the code, **Python 2.6 or later** or **Python 3.0 or later** must
 already be installed.  The latest release is recommended.  Python is
